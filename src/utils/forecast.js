@@ -1,11 +1,11 @@
 const request = require('request')
 
 const forecast = (latitude, longitude, callback) => {
-    const url ='https://api.darksky.net/forecast/a0488c165a376cb58eb75d3c2dd2d056/' + encodeURIComponent(latitude) + ',' + encodeURIComponent(longitude) + '?units=us'
-    request({url, json:true}, (error,{body}) => {
-        if(error){
-            callback("unable to connect locational services",undefined)
-        } else if(body.error){
+    const url = 'https://api.darksky.net/forecast/a0488c165a376cb58eb75d3c2dd2d056/' + encodeURIComponent(latitude) + ',' + encodeURIComponent(longitude) + '?units=us'
+    request({ url, json: true }, (error, { body }) => {
+        if (error) {
+            callback("unable to connect locational services", undefined)
+        } else if (body.error) {
             callback("unable to find weather location", undefined)
         } else {
             const temp = body.currently.temperature
